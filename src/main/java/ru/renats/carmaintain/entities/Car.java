@@ -1,7 +1,5 @@
 package ru.renats.carmaintain.entities;
 
-import lombok.Builder;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -15,12 +13,13 @@ import static javax.persistence.GenerationType.IDENTITY;
  */
 @Entity
 @Table(name = "car")
-//@Data
-@Builder
 public class Car implements Serializable {
 
     private Long id;
     private String name;
+
+    public Car() {
+    }
 
     /**
      * @return car's id.
