@@ -2,6 +2,7 @@ package ru.renats.carmaintain.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -17,6 +18,11 @@ public class Car implements Serializable {
 
     private Long id;
     private String name;
+
+    //    @OneToMany(mappedBy = "car", targetEntity=Expense.class, cascade= CascadeType.ALL, orphanRemoval=true, fetch=FetchType.EAGER)
+//    @Column
+//    @ElementCollection(targetClass=Expense.class)
+    private List<Expense> expenses;
 
     public Car() {
     }
@@ -51,5 +57,14 @@ public class Car implements Serializable {
      */
     public void setName(final String name_) {
         name = name_;
+    }
+
+    @OneToMany(mappedBy = "car", targetEntity = Expense.class, /*cascade= CascadeType.ALL,*/ fetch = FetchType.EAGER)
+    public List<Expense> getExpenses() {
+        return expenses;
+    }
+
+    public void setExpenses(List<Expense> expenses) {
+        this.expenses = expenses;
     }
 }

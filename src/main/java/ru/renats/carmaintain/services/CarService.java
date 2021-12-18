@@ -1,6 +1,6 @@
 package ru.renats.carmaintain.services;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Service;
 import ru.renats.carmaintain.entities.Car;
 
@@ -11,6 +11,6 @@ import ru.renats.carmaintain.entities.Car;
  * @since 13.10.2021
  */
 @Service
-public interface CarService extends CrudRepository<Car, Long> {
+public interface CarService extends PagingAndSortingRepository<Car, Long> {
 
 }
